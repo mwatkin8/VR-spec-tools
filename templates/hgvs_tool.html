@@ -1,0 +1,45 @@
+{% extends 'skin.html' %}
+{% block tool_content %}
+<div class="row">
+  <div class="col-md-10 blog-main">
+    <h3 class="pb-3 mb-4 font-italic border-bottom">
+      HGVS Tool
+    </h3>
+    <div class="blog-post">
+      <h2 class="blog-post-title">Convert an HGVS expression to a VR Allele</h2>
+      <p>
+          This tool will generate a VR Allele object to which represents the variant encoded by a user-entered HGVS expression.
+          Included in this JSON representation of the Allele will be globally unique VR identifiers, as described in the
+          <a href="/">Overview</a> section of this tool suite.
+      </p>
+
+      <form action="" method="post">
+          <div class="form-group">
+              <label for="hgvs_entry">Enter your string here:</label>
+              <input type="text" class="form-control" id="hgvs_entry" name="hgvs" placeholder="HGVS" value="{{ hgvs }}">
+          </div>
+          <button type="submit" class="btn btn-primary">Convert</button>
+      </form>
+
+      <br>
+      <!--Display area for transformed VCF file-->
+      <div class="row">
+          <!--Display area for transformed VCF file-->
+          <div class="bg-light col-md-11" style="overflow:scroll;height:300px;">
+              <pre id="vr_model" style="padding:20px;">{{ vr_model }}</pre>
+          </div>
+          <div class="col-md-1">
+              <nav class="blog-pagination" style="padding-top:10px;">
+                <button class="btn btn-outline-primary" onclick="copy('vr_model')"><span data-feather="clipboard"></span></button>
+              </nav>
+          </div>
+
+      </div>
+
+
+
+    </div><!-- /.blog-post -->
+  </div><!-- /.blog-main -->
+  <!-- /.blog-sidebar -->
+</div><!-- /.row -->
+{% endblock %}

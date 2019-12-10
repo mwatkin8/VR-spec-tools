@@ -1,0 +1,73 @@
+{% extends 'skin.html' %}
+{% block tool_content %}
+<div class="row">
+  <div class="col-md-10 blog-main">
+    <h3 class="pb-3 mb-4 font-italic border-bottom">
+      VCF Tool
+    </h3>
+    <div class="blog-post">
+      <h2 class="blog-post-title">Add VR Identifiers to a VCF File</h2>
+      <p>
+          This tool will create VR information models for each entry in a user-uploaded VCF file.
+          These information models will then be run through the VR digest algorithm to create globally
+          unique  <a href="https://vr-spec.readthedocs.io/en/1.0/impl-guide/computed_identifiers.html">identifiers</a> to represent each entry.
+          The following identifiers will be inserted into the INFO field of each entry.
+      </p>
+      <ul style="list-style:none;">
+        <li>SQ - a Sequence identifier uniquely represents the reference sequence on which the variation is located.</li>
+        <li>VSL - a SequenceLocation identifier uniquely represents the specific location on the specific reference sequence on which the variation is located.</li>
+        <li>VA - an Allele identifier uniquely represents a specific variation at a specific location.</li>
+      </ul>
+
+      The following descriptors will also be added to the meta-information section of the file.
+      <aside class="mb-3 col-md-12" style="padding-left:0px;">
+        <div class="p-3  bg-light rounded">
+            <code>
+                ##INFO=&lt;ID=VRSQ,Number=1,Type=String,Description="VR Sequence identifier"&gt;<br>
+              &nbsp;##INFO=&lt;ID=VRVSL,Number=1,Type=String,Description="VR Sequence Location identifier"&gt;<br>
+              &nbsp;##INFO=&lt;ID=VRVA,Number=1,Type=String,Description="VR Allele identifier"&gt;
+          </code>
+        </div>
+      </aside>
+      <p>Upon completion, the enriched VCF will be available for download as well as a JSON file of the VR allele models created for each entry.</p>
+
+      <small id="fileHelp" class="form-text text-muted">Upload your VCF file</small>
+      <div style="font-size:80%;" class="form-group">
+          <form id="upload_form" action="/upload" method="post" enctype="multipart/form-data">
+              <input style="display: none" class="btn-sm" type="file" onchange="setTimeout(showGIF,1000);this.form.submit()" id="fileInput" accept=".vcf" name="file" size="1" >
+              <input style="padding-top:0px;padding-bottom:0px;border: 1px solid #CCCCCC;border-radius: 6px;background-color: #F8F8F8" type="button" value="Choose file" onclick="document.getElementById('fileInput').click();changeFileName()" />
+              <span id="fileName">No file chosen</span>
+              <script>
+                  window.addEventListener("load", changeFileName)
+              </script>
+          </form>
+          <p id="file_name" class="text-muted"></p>
+      </div>
+      <form action="" method="post">
+          <div class="row">
+              <div class="col-md-2" style="padding-right:0;">
+                  <p class="pointer text-muted">
+                      <button class="btn btn-primary" onclick="showGIF();" type="submit">Add identifiers</button>
+                  </p>
+              </div>
+              <div class="col-md-2" style="padding-left:0;padding-top:5px;">
+                  <select name="build" style="width:120px;font-size:80%;">
+                      <option selected="selected" value="GRCh37">GRCh37</option>
+                      <option value="GRCh38">GRCh38</option>
+                  </select>
+              </div>
+          </div>
+      </form>
+      <p>Please ensure the correct reference sequence is specified in the drop-down above before adding the identifiers.</p>
+
+      <nav class="blog-pagination">
+          Download
+        <a class="btn btn-outline-primary" href="/vcf-download">VCF</a>
+        <a class="btn btn-outline-primary" href="/json-download">JSON</a>
+      </nav>
+
+    </div><!-- /.blog-post -->
+  </div><!-- /.blog-main -->
+  <!-- /.blog-sidebar -->
+</div><!-- /.row -->
+{% endblock %}
