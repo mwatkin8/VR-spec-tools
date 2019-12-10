@@ -1,6 +1,8 @@
 
 # VR-Spec Tool Suite
 
+Available at: http://vcfclin.org/
+
 The GA4GH Variant Representation Group has developed a specification ([vr-spec](https://vr-spec.readthedocs.io/en/1.0/index.html)) which includes both information models as well as an algorithm for generating globally unique identifiers. This is important because it allows for institution A to share variant information with institution B (with institution B being able to compare their VR identifiers with those provided from institution A). If they are identical then both institutions can be sure that they are talking about the exact same variant. This standard also opens the door for a variety of research and clinical tools which rely on consistent data representation.
 
 This web suite is designed to perform the following functions:
