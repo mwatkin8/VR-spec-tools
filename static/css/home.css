@@ -112,35 +112,3 @@ pre {
     width:28px;
     height:28px;
 }
-
-.loading{
-    display: none;
-    background: url('/static/images/tetris.gif') no-repeat center center;
-    background-size: 400px;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-}
-
-.loading_text{
-    left: 37%;
-    line-height: 200px;
-    margin: auto;
-    margin-top: -100px;
-    position: absolute;
-    top: 27%;
-    width: 100%;
-    font-size: 40px;
-    color: gray;
-}
-.loading_sub{
-    left: 26%;
-    line-height: 100px;
-    margin: auto;
-    margin-top: -100px;
-    position: absolute;
-    top: 75%;
-    width: 100%;
-    font-size: 30px;
-    color: gray;
-}

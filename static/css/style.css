@@ -154,18 +154,18 @@ blockquote{
 }
 
 .loading_text{
-    left: 37%;
+    left: 42%;
     line-height: 200px;
     margin: auto;
     margin-top: -100px;
     position: absolute;
-    top: 27%;
+    top: 29%;
     width: 100%;
     font-size: 40px;
     color: gray;
 }
 .loading_sub{
-    left: 26%;
+    left: 32%;
     line-height: 100px;
     margin: auto;
     margin-top: -100px;
