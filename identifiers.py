@@ -15,10 +15,10 @@ def getIdentifiers(vcf,sqs):
                     ll = line.split('\t')
                     chr = ll[0]
                     start = int(ll[1]) - 1
-                    end = int(ll[1])
                     ref = ll[3]
                     alt = ll[4]
-                    state = ll[4]
+                    end = start + len(ll[3])
+                    state = alt
                     #indel
                     if len(alt) > 1 and len(ref) > 1:
                         end = start + len(ref) - 1
