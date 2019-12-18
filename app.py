@@ -49,11 +49,12 @@ def tool1():
             #Get the identifiers for the VCF
             build = request.form.get('build')
             sqs = getSQs(build);
-            ids,vr_models = identifiers.getIdentifiers(vcf,sqs)
+            vr_vcf,vr_models = identifiers.getIdentifiers(vcf,sqs)
             #Inserts the identifiers back into the file for download
-            vr_vcf = identifiers.insertIdentifiers(ids,vcf)
+            print("Saving file to cache...")
             cache.set("vr." + fileKey, vr_vcf, timeout=604800000)
             cache.set(fileKey + '.json', vr_models, timeout=604800000)
+            print('Done!')
         else:
             vr_vcf = cache.get("vr." + fileKey)
             vr_models = cache.get(fileKey + '.json')
