@@ -78,6 +78,8 @@ def getIdentifiers(vcf,sq_list):
     m = []
     print('Assembling outputs...')
     for entry in combined:
+        if isinstance(entry, str):
+            continue
         ids.append(entry[0])
         m.append(entry[1])
     ids.remove('')
