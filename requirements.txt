@@ -23,7 +23,7 @@ iniherit==0.3.9
 ipython==5.8.0
 ipython-genutils==0.2.0
 itsdangerous==1.1.0
-Jinja2==2.10.3
+Jinja2==2.11.3
 lxml==4.4.2
 MarkupSafe==1.1.1
 parse==1.12.1
