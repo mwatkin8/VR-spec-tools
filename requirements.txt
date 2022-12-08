@@ -6,7 +6,7 @@ biocommons.seqrepo==0.5.2
 biopython==1.69
 bioutils==0.5.2.post3
 bs4==0.0.1
-certifi==2019.11.28
+certifi==2022.12.7
 chardet==3.0.4
 Click==7.0
 coloredlogs==10.0
